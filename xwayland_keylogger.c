@@ -47,7 +47,21 @@ static const char *key_name(unsigned short code) {
 
 int main(int argc, char **argv) {
     const char *logpath = "xwayland_keys.log";
-    if (argc >= 2) logpath = argv[1];
+
+    if (argc >= 2) {
+        if (!strcmp(argv[1], "--help") || !strcmp(argv[1], "-h")) {
+            printf("usage: %s [logfile]\n\n", argv[0]);
+            printf("keylogger using Linux evdev (/dev/input/event*)\n");
+            printf("captures all keyboard input system-wide.\n\n");
+            printf("requires read access to /dev/input/event*\n");
+            printf("  (run as root or join the 'input' group)\n\n");
+            printf("options:\n");
+            printf("  logfile    path to log file (default: %s)\n", logpath);
+            printf("  -h, --help show this help\n");
+            return 0;
+        }
+        logpath = argv[1];
+    }
 
     signal(SIGINT, handle_signal);
     signal(SIGTERM, handle_signal);
