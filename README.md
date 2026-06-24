@@ -15,18 +15,26 @@ evdev reads directly from the kernel's input subsystem, before any display serve
   - **root** (`sudo ./xwayland_keylogger`), or
   - **input group** (`sudo usermod -a -G input $USER`, then log out and back in)
 
+## Dependencies
+
+Only a C compiler, `make`, and kernel headers are needed.
+
+| Distro | install command |
+|---|---|
+| Debian / Ubuntu | `sudo apt install gcc make linux-libc-dev` |
+| Fedora / RHEL | `sudo dnf install gcc make kernel-headers` |
+
 ## Build
 
 ```
 make
 ```
 
-Produces two identical binaries (just different default log paths):
+Produces the binary:
 
 | binary | default log |
 |---|---|
 | `xwayland_keylogger` | `xwayland_keys.log` |
-| `wayland_keylogger` | `wayland_keys.log` |
 
 ## Usage
 
