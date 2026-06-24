@@ -1,4 +1,4 @@
-# XWayland / Wayland Keylogger
+# XWayland
 
 Linux keyboard logger using **evdev** (`/dev/input/event*`). Captures all keyboard input system-wide at the kernel level — no Wayland or X11 dependency.
 
